@@ -1,3 +1,4 @@
+
 /*
 GAME RULES:
 
@@ -9,34 +10,47 @@ GAME RULES:
 
 */
 
-var scores, roundScore, activePlayer, dice;
 
-scores = [0, 0];
-roundScore = 0;
-activePlayer = 0;
+const scores = [0, 0];
+let roundScore = 0;
+let activePlayer = 0;
 
-var dice = document.querySelector(".dice");
+
+
+const dice = document.querySelector(".dice");
 dice.style.display = "none";
 
-document.querySelector(".btn-roll").addEventListener("click", function(){
+document
+    .querySelector(".btn-roll")
+    .addEventListener("click", () => {
 
-    var diceNumber = Math.floor(Math.random() * 6 + 1);
-    var activePlayerCurrent = document.getElementById("current-" + activePlayer);
+        const diceNumber = Math.floor(Math.random() * 6 + 1);
+        const activePlayerCurrent = document.getElementById(`current-${activePlayer}`);
 
-    dice.style.display = "block";
-    dice.src = "dice-" + diceNumber + ".png";
+        dice.style.display = "block";
+        dice.src = `dice-${diceNumber}.png`;
 
-    if(diceNumber !== 1){
 
-        roundScore += diceNumber;
-        activePlayerCurrent.innerText = roundScore;
-        return;
-    }
+        if (diceNumber !== 1) {
 
-    activePlayerCurrent.innerText = "0";
-    roundScore = 0;
-    activePlayer = activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-    document.querySelector(".player-0-panel").classList.toggle("active");
-    document.querySelector(".player-1-panel").classList.toggle("active");
+            roundScore += diceNumber;
+            activePlayerCurrent.innerText = roundScore;
+            return;
 
-});
+        }
+
+        activePlayerCurrent.innerText = "0";
+        roundScore = 0;
+        activePlayer = activePlayer === 0 ? 1 : 0
+
+
+        for( const i of [ 0, 1 ]){
+            document
+                .querySelector(`.player-${i}-panel`)
+                .classList
+                .toggle("active")
+                ;
+        }
+
+    })
+    ;
