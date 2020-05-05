@@ -11,12 +11,9 @@ GAME RULES:
 
 var scores, roundScore, activePlayer, dice;
 
-scores = [0, 0];
-roundScore = 0;
-activePlayer = 0;
+dice = document.querySelector(".dice");
 
-var dice = document.querySelector(".dice");
-dice.style.display = "none";
+gameInit();
 
 document.querySelector(".btn-roll").addEventListener("click", function(){
 
@@ -74,30 +71,27 @@ function changeActivePlayer(){
 
 }
 
-document.querySelector(".btn-new").addEventListener("click", function(){
+
+document.querySelector(".btn-new").addEventListener("click", gameInit);
+
+
+
+function gameInit(){
+
 
     scores = [0, 0];
-
+    roundScore = 0;
+    activePlayer = 0;
+    dice.style.display = "none";
     document.getElementById("score-0").innerText = 0;
     document.getElementById("score-1").innerText = 0;
-    dice.style.display = "none";
-
-    if(document.querySelector(".player-" + activePlayer + "-panel").classList.contains("winner")){
-
-        document.querySelector(".player-" + activePlayer + "-panel").classList.remove("winner");
-        document.querySelector(".player-" + activePlayer + "-panel").classList.add("active");
-        document.getElementById("name-" + activePlayer).innerText = "Player 1";
-    }
-
-
-    if(activePlayer === 1){
-        changeActivePlayer();
-        return;
-    }
-
     document.getElementById("current-0").innerText = 0;
+    document.getElementById("current-1").innerText = 0;
+    document.querySelector(".player-0-panel").classList.remove("winner");
+    document.querySelector(".player-1-panel").classList.remove("winner");
+    document.querySelector(".player-0-panel").classList.add("active");
+    document.querySelector(".player-1-panel").classList.remove("active");
+    document.getElementById("name-0").innerText = "Player 1";
+    document.getElementById("name-1").innerText = "Player 2";
 
-
-
-
-});
+}
