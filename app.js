@@ -45,7 +45,7 @@ function DrawnTwoSixes(){
 
 
 
-function gameWon(){
+function gameWon() {
 
     isGamePlaying = false;
 
@@ -84,7 +84,7 @@ function changeActivePlayer(){
 
 
 
-function gameInit(){
+function gameInit() {
 
     isGamePlaying = true;
 
@@ -179,7 +179,7 @@ document.querySelector(".btn-hold").addEventListener("click", () =>{
 
     
 
-    document.getElementById("score-" + activePlayer).innerText = scores[activePlayer] += roundScore;
+    document.getElementById(`score-${activePlayer}`).innerText = scores[activePlayer] += roundScore;
 
     if(scores[activePlayer] >= scoreToWin){
         gameWon();
