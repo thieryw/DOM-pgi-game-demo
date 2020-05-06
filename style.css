@@ -142,13 +142,33 @@ i {
 .btn-hold { top: 467px;}
 
 .dice {
+    top: 178px;
+}
+
+.dice1{
+    top: 278px;
+}
+
+.dice1, .dice{
     position: absolute;
     left: 50%;
-    top: 178px;
     transform: translateX(-50%);
     height: 100px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+
 }
 
 .winner { background-color: #f7f7f7; }
 .winner .player-name { font-weight: 300; color: #EB4D4D; }
+
+.scoreInput{
+    position: relative;
+    text-align: center;
+    top: 30px;
+}
+
+.scoreInput p{
+    color: black;
+    font-size: 1.2em;
+}
+
